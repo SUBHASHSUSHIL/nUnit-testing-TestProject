@@ -8,4 +8,8 @@
     <UseVSTest>true</UseVSTest>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\nUnit-testing-TestProject.Core\nUnit-testing-TestProject.Core.csproj" />
+  </ItemGroup>
+
 </Project>
