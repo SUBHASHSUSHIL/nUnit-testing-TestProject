@@ -13,5 +13,10 @@
             }
             return true;
         }
+
+        public string ConcatStrings(string firstString, string secondString)
+        {
+            return $"{firstString} {secondString}";
+        }
     }
 }

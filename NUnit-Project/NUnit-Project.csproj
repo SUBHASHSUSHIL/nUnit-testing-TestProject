@@ -13,4 +13,8 @@
     <PackageReference Include="NUnit3TestAdapter" Version="5.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\nUnit-testing-TestProject.Core\nUnit-testing-TestProject.Core.csproj" />
+  </ItemGroup>
+
 </Project>
