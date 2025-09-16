@@ -144,5 +144,37 @@ namespace NUnit_Project
             TestDelegate codeThatDoesNotThrow = () => { var x = 5 + 5; };
             Assert.That(codeThatDoesNotThrow, Throws.Nothing);
         }
+
+        [Test]
+        public void MultipleAssertions()
+        {
+            Assert.Multiple(() =>
+            {
+                Assert.That(_person.Name, Is.EqualTo("John Doe"));
+                Assert.That(_person.Age, Is.GreaterThan(20));
+                Assert.That(_person.Email, Does.Contain("@"));
+            });
+        }
+
+        [Test]
+        public void CustomMessageAssertions()
+        {
+            int value = 10;
+            Assert.That(value, Is.GreaterThan(5), "Value should be greater than 5");
+            Assert.That(value, Is.LessThan(20), "Value should be less than 20");
+        }
+
+        [Test]
+        public void DateAssertions()
+        {
+            DateTime Now = DateTime.Now;
+            DateTime future = Now.AddDays(1);
+            DateTime past = Now.AddDays(-1);
+
+            Assert.That(future, Is.GreaterThan(Now));
+            Assert.That(past, Is.LessThan(Now));
+            Assert.That(Now, Is.InRange(past, future));
+            Assert.That(Now, Is.EqualTo(DateTime.Now).Within(1).Seconds);
+        }
     }
 }
